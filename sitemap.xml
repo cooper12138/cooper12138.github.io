@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2020/04/13/Git/</loc>
+    
+    <lastmod>2020-11-28</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2020/07/09/Redis%E5%AD%A6%E4%B9%A0/</loc>
     
     <lastmod>2020-11-27</lastmod>
@@ -31,13 +38,6 @@
   
   <url>
     <loc>http://yoursite.com/2020/04/13/Mockito%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</loc>
-    
-    <lastmod>2020-11-27</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2020/04/13/Git/</loc>
     
     <lastmod>2020-11-27</lastmod>
     
@@ -81,7 +81,7 @@
 
   <url>
     <loc>http://yoursite.com/</loc>
-    <lastmod>2020-11-27</lastmod>
+    <lastmod>2020-11-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
