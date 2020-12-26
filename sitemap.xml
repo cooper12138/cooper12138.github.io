@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2020/11/27/hexo%E6%90%AD%E5%BB%BA+%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE+git%E9%85%8D%E7%BD%AE%E5%A4%9A%E8%B4%A6%E5%8F%B7/</loc>
+    
+    <lastmod>2020-12-26</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2020/07/09/docker%E6%95%99%E7%A8%8B/</loc>
     
     <lastmod>2020-11-30</lastmod>
@@ -65,13 +72,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2020/11/27/hexo%E6%90%AD%E5%BB%BA+%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE+git%E9%85%8D%E7%BD%AE%E5%A4%9A%E8%B4%A6%E5%8F%B7/</loc>
-    
-    <lastmod>2020-11-27</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2020/04/13/%E7%AC%AC%E4%B8%80%E5%A4%A9/</loc>
     
     <lastmod>2020-04-13</lastmod>
@@ -81,7 +81,7 @@
 
   <url>
     <loc>http://yoursite.com/</loc>
-    <lastmod>2020-12-01</lastmod>
+    <lastmod>2020-12-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
