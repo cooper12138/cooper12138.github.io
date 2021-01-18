@@ -41,9 +41,9 @@
     <link href="http://yoursite.com/2021/01/15/Netty%E5%AD%A6%E4%B9%A0/"/>
     <id>http://yoursite.com/2021/01/15/Netty%E5%AD%A6%E4%B9%A0/</id>
     <published>2021-01-15T15:46:28.000Z</published>
-    <updated>2021-01-15T15:46:28.595Z</updated>
+    <updated>2021-01-18T15:19:36.730Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Netty"><a href="#Netty" class="headerlink" title="Netty"></a>Netty</h2><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>…</p><h4 id="Netty-编解码相关"><a href="#Netty-编解码相关" class="headerlink" title="Netty 编解码相关"></a>Netty 编解码相关</h4><p>…</p><h4 id="ByteBuf-与内存管理"><a href="#ByteBuf-与内存管理" class="headerlink" title="ByteBuf 与内存管理"></a>ByteBuf 与内存管理</h4><p>…</p><h4 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h4><p>…</p><h4 id="Netty-核心源码解析"><a href="#Netty-核心源码解析" class="headerlink" title="Netty 核心源码解析"></a>Netty 核心源码解析</h4><p>…</p><h4 id="从-0-到-1-实现-RPC"><a href="#从-0-到-1-实现-RPC" class="headerlink" title="从 0 到 1 实现 RPC"></a>从 0 到 1 实现 RPC</h4><p>…</p>]]></content>
     
     
       
