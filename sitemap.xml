@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2021/03/03/Github%E9%AA%9A%E6%93%8D%E4%BD%9C/</loc>
+    
+    <lastmod>2021-03-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2021/03/02/JAVA%E7%81%B5%E9%AD%82%E6%8B%B7%E9%97%AE/</loc>
+    
+    <lastmod>2021-03-02</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2021/02/25/JVM%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2021-02-28</lastmod>
@@ -186,7 +200,7 @@
 
   <url>
     <loc>http://yoursite.com/</loc>
-    <lastmod>2021-02-28</lastmod>
+    <lastmod>2021-03-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
