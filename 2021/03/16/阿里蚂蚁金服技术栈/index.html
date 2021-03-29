@@ -1,0 +1,359 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>阿里蚂蚁金服技术栈 | 不学习会被杀掉的</title><meta name="author" content="gump"><meta name="copyright" content="gump"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="阿里蚂蚁金服技术栈一、SOFARPC服务发布、引用以及调用的简单流程图如下：   当一个 SOFARPC 的应用启动时，如果发现当前应用需要发布 RPC 服务，那么 SOFARPC 会将该服务注册到配置中心，就是图中蓝色实线所示的过程。 当引用这个服务的 SOFA 应用启动时，会从配置中心订阅对应服务的地址，当配置中心收到订阅请求后，会将发布方的地址列表推送给订阅方，就是图中绿色实线所示的过程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿里蚂蚁金服技术栈">
+<meta property="og:url" content="http://example.com/2021/03/16/%E9%98%BF%E9%87%8C%E8%9A%82%E8%9A%81%E9%87%91%E6%9C%8D%E6%8A%80%E6%9C%AF%E6%A0%88/index.html">
+<meta property="og:site_name" content="不学习会被杀掉的">
+<meta property="og:description" content="阿里蚂蚁金服技术栈一、SOFARPC服务发布、引用以及调用的简单流程图如下：   当一个 SOFARPC 的应用启动时，如果发现当前应用需要发布 RPC 服务，那么 SOFARPC 会将该服务注册到配置中心，就是图中蓝色实线所示的过程。 当引用这个服务的 SOFA 应用启动时，会从配置中心订阅对应服务的地址，当配置中心收到订阅请求后，会将发布方的地址列表推送给订阅方，就是图中绿色实线所示的过程。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://files.alexhchu.com/2021/03/18/0ea5deff04b9f.jpg">
+<meta property="article:published_time" content="2021-03-16T15:49:34.000Z">
+<meta property="article:modified_time" content="2021-03-18T14:13:45.645Z">
+<meta property="article:author" content="gump">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://files.alexhchu.com/2021/03/18/0ea5deff04b9f.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2021/03/16/%E9%98%BF%E9%87%8C%E8%9A%82%E8%9A%81%E9%87%91%E6%9C%8D%E6%8A%80%E6%9C%AF%E6%A0%88/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-03-18 22:13:45'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">42</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://files.alexhchu.com/2021/03/18/0ea5deff04b9f.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">不学习会被杀掉的</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">阿里蚂蚁金服技术栈</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-03-16T15:49:34.000Z" title="发表于 2021-03-16 23:49:34">2021-03-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-03-18T14:13:45.645Z" title="更新于 2021-03-18 22:13:45">2021-03-18</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="阿里蚂蚁金服技术栈"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="阿里蚂蚁金服技术栈"><a href="#阿里蚂蚁金服技术栈" class="headerlink" title="阿里蚂蚁金服技术栈"></a>阿里蚂蚁金服技术栈</h2><h3 id="一、SOFARPC"><a href="#一、SOFARPC" class="headerlink" title="一、SOFARPC"></a>一、SOFARPC</h3><p>服务发布、引用以及调用的简单流程图如下：</p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2RvY3MtYWxpeXVuLmNuLWhhbmd6aG91Lm9zcy5hbGl5dW4taW5jLmNvbS9hc3NldHMvcGljLzU2MjA3L0FudENsb3VkX3poLzE1NDk4ODEwNzQ0MjYvNTYyMDdfc29mYVJQQy5wbmc?x-oss-process=image/format,png" alt="SOFA RPC"></p>
+<ol>
+<li>当一个 SOFARPC 的应用启动时，如果发现当前应用需要发布 RPC 服务，那么 SOFARPC 会将该服务注册到配置中心，就是图中蓝色实线所示的过程。</li>
+<li>当引用这个服务的 SOFA 应用启动时，会从配置中心订阅对应服务的地址，当配置中心收到订阅请求后，会将发布方的地址列表推送给订阅方，就是图中绿色实线所示的过程。</li>
+<li>当引用服务的一方拿到地址以后，就可以调用服务了，就是图中蓝色虚线所示的过程。</li>
+</ol>
+<h4 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h4><p>依赖</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.alipay.sofa&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;rpc-enterprise-sofa-boot-starter&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="服务发布"><a href="#服务发布" class="headerlink" title="服务发布"></a>服务发布</h5><hr>
+<p>1、设计服务接口类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 服务接口类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">SampleService</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span></span>;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2、编写服务实现类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 实现服务接口：SampleService</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SampleServiceImpl</span> <span class="keyword">implements</span> <span class="title">SampleService</span></span>&#123;</span><br><span class="line"> </span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3、在 Spring XML 中配置服务发布</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans&quot;</span><br><span class="line">       xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot;</span><br><span class="line">       xmlns:sofa&#x3D;&quot;http:&#x2F;&#x2F;schema.alipay.com&#x2F;sofa&#x2F;schema&#x2F;slite&quot;</span><br><span class="line">       xsi:schemaLocation&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans&#x2F;spring-beans.xsd</span><br><span class="line">            http:&#x2F;&#x2F;schema.alipay.com&#x2F;sofa&#x2F;schema&#x2F;slite http:&#x2F;&#x2F;schema.alipay.com&#x2F;sofa&#x2F;slite.xsd&quot;&gt;</span><br><span class="line"> </span><br><span class="line">    &lt;!-- 声明服务的实现对象，以下类全名和接口全名，请根据自己的包名进行指定 --&gt;</span><br><span class="line">    &lt;bean id&#x3D;&quot;sampleService&quot; class&#x3D;&quot;com.alipay.samples.rpc.impl.SampleServiceImpl&quot;&#x2F;&gt;</span><br><span class="line"> </span><br><span class="line">    &lt;!-- 发布 RPC 服务 --&gt;</span><br><span class="line">    &lt;sofa:service ref&#x3D;&quot;sampleService&quot; interface&#x3D;&quot;com.alipay.samples.rpc.SampleService&quot;&gt;</span><br><span class="line">        &lt;sofa:binding.bolt&#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;sofa:service&gt;</span><br><span class="line">&lt;&#x2F;beans&gt;</span><br></pre></td></tr></table></figure>
+
+<p>4、启动服务</p>
+<p>直接运行项目中的 Application即可，框架会自动进行服务的发布。</p>
+<h5 id="服务引用"><a href="#服务引用" class="headerlink" title="服务引用"></a>服务引用</h5><hr>
+<p>1、在 Spring XML 中配置服务引用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans&quot;</span><br><span class="line">       xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot;</span><br><span class="line">       xmlns:sofa&#x3D;&quot;http:&#x2F;&#x2F;schema.alipay.com&#x2F;sofa&#x2F;schema&#x2F;slite&quot;</span><br><span class="line">       xsi:schemaLocation&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans&#x2F;spring-beans.xsd</span><br><span class="line">            http:&#x2F;&#x2F;schema.alipay.com&#x2F;sofa&#x2F;schema&#x2F;slite http:&#x2F;&#x2F;schema.alipay.com&#x2F;sofa&#x2F;slite.xsd&quot;&gt;</span><br><span class="line">    &lt;!-- 以下接口名请根据服务提供方的接口全名来指定 --&gt;</span><br><span class="line">    &lt;sofa:reference id&#x3D;&quot;sampleServiceRef&quot; interface&#x3D;&quot;com.alipay.samples.rpc.SampleService&quot;&gt;</span><br><span class="line">        &lt;sofa:binding.bolt&gt;</span><br><span class="line">            &lt;!-- 等待配置中心返回地址的时间，如果在 5000 ms 内有地址返回的话，等待过程会立马结束 --&gt;</span><br><span class="line">            &lt;sofa:global-attrs address-wait-time&#x3D;&quot;5000&quot; test-url&#x3D;&quot;127.0.0.1:12200&quot;&#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;sofa:binding.bolt&gt;</span><br><span class="line">    &lt;&#x2F;sofa:reference&gt;</span><br><span class="line">&lt;&#x2F;beans&gt;</span><br></pre></td></tr></table></figure>
+
+<p>2、将服务引用对象注入业务代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">@ImportResource(&#123;&quot;classpath*:META-INF&#x2F;demo&#x2F;*.xml&quot;&#125;)</span><br><span class="line">@org.springframework.boot.autoconfigure.SpringBootApplication</span><br><span class="line">public class SOFABootWebSpringApplication &#123;</span><br><span class="line"> </span><br><span class="line">    &#x2F;&#x2F; init the logger</span><br><span class="line">    private static final Logger logger &#x3D; LoggerFactory.getLogger(SOFABootWebSpringApplication.class);</span><br><span class="line"> </span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">    &#x2F;&#x2F;下面这一行只有在本地同时启动客户端和服务端的时候需要，正式环境不可以写</span><br><span class="line"> System.setProperty(&quot;server.port&quot;, &quot;8081&quot;);</span><br><span class="line">        SpringApplication springApplication &#x3D; new SpringApplication(SOFABootWebSpringApplication.class);</span><br><span class="line">        ApplicationContext applicationContext &#x3D; springApplication.run(args);</span><br><span class="line"> </span><br><span class="line">        if (logger.isInfoEnabled()) &#123;</span><br><span class="line">            logger.info(&quot;application start&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        SampleService sampleService &#x3D; (SampleService) applicationContext.getBean(&quot;sampleServiceRef&quot;);</span><br><span class="line"> </span><br><span class="line">        String resp &#x3D; sampleService.hello();</span><br><span class="line">        if (logger.isInfoEnabled()) &#123;</span><br><span class="line">            logger.info(&quot;the resp data is &quot; + resp);</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="发布及引用-BOLT-服务"><a href="#发布及引用-BOLT-服务" class="headerlink" title="发布及引用 BOLT 服务"></a>发布及引用 BOLT 服务</h5><hr>
+<p>BOLT 服务的名称来自于 RPC 使用的底层通信框架 BOLT。相对于传统的 WebService，BOLT 支持更加复杂的对象，序列化后的对象更小，且提供了更为丰富的调用方式（sync、oneway、callback、future 等），支持更广泛的应用场景。</p>
+<p>发布一个 BOLT 的服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 发布 BOLT 服务 --&gt;</span><br><span class="line">&lt;sofa:service interface&#x3D;&quot;com.alipay.test.SampleService&quot; </span><br><span class="line">            ref&#x3D;&quot;sampleService&quot; unique-id&#x3D;&quot;service1&quot;&gt;</span><br><span class="line">      &lt;sofa:binding.bolt&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;sofa:service&gt;</span><br></pre></td></tr></table></figure>
+
+<p>引用一个 BOLT 的服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 引用 BOLT 服务 --&gt;</span><br><span class="line">&lt;sofa:reference interface&#x3D;&quot;com.alipay.test.SampleService&quot; id&#x3D;&quot;sampleService&quot;&gt;</span><br><span class="line">      &lt;sofa:binding.bolt&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;sofa:reference&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="二、消息队列"><a href="#二、消息队列" class="headerlink" title="二、消息队列"></a>二、消息队列</h3><p>消息队列主要涉及五个核心角色，消息发布者（Publisher）、消息代理组件（Message Broker）、消息订阅者（Subscriber）、消息类型（Message Type）和订阅关系（Binding），具体描述如下：</p>
+<ul>
+<li><strong>消息发布者</strong>：指发送消息的应用系统。一个应用系统可以发送一种或者多种类型的消息，消息发布者将消息发送到消息代理组件。</li>
+<li><strong>消息代理组件</strong>：负责接收发布者发送的消息，根据消息类型和消息订阅元数据将消息分发投递到一个或多个消息订阅者。整个过程涉及消息类型校验、消息持久化存储、消息订阅关系匹配、消息投递和消息恢复等核心功能。</li>
+<li><strong>消息订阅者</strong>：指订阅消息的应用系统。一个应用系统可以订阅一种或者多种消息类型，消息订阅者收到的消息来自消息代理组件。</li>
+<li><strong>消息类型</strong>：一种消息类型由 TOPIC 和 EVENTCODE 唯一标识。</li>
+<li><strong>消息订阅</strong>：用来描述一种消息类型被哪些订阅者订阅，订阅元数据也被称为 Binding。</li>
+</ul>
+<hr>
+<h4 id="使用步骤-1"><a href="#使用步骤-1" class="headerlink" title="使用步骤"></a>使用步骤</h4><p>1、确定消息类型</p>
+<p>一种消息类型由 TOPIC 和 EVENTCODE 唯一标识。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>命名规则</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>TOPIC</strong></td>
+<td>以 “TP_” 开头</td>
+<td>TP_DEFAULT</td>
+</tr>
+<tr>
+<td><strong>EVENTCODE</strong></td>
+<td>以 “EC_” 开头</td>
+<td>EC_DEFAULT</td>
+</tr>
+</tbody></table>
+<p>2、本地开发</p>
+<p>依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.alipay.sofa&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mq-enterprise-sofa-boot-starter&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p>application.properties文件   run.mode=DEV</p>
+<h5 id="发布者-Publisher"><a href="#发布者-Publisher" class="headerlink" title="发布者 (Publisher)"></a>发布者 (Publisher)</h5><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;sofa:publisher id&#x3D;&quot;mqPublisher&quot; group&#x3D;&quot;P_appname_service&quot;&gt;</span><br><span class="line">      &lt;sofa:channels&gt;</span><br><span class="line">            &lt;sofa:channel value&#x3D;&quot;TP_DEFAULT&quot;&#x2F;&gt;</span><br><span class="line">      &lt;&#x2F;sofa:channels&gt;</span><br><span class="line">      &lt;sofa:binding.msg_broker&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;sofa:publisher&gt;</span><br><span class="line"> </span><br><span class="line">&lt;bean id&#x3D;&quot;mqService&quot; class&#x3D;&quot;com.antcloud.tutorial.mq.endpoint.service.MqService&quot;&gt;</span><br><span class="line">    &lt;property name&#x3D;&quot;mqPublisher&quot; ref&#x3D;&quot;mqPublisher&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;bean&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>id</strong> 是 Spring Bean 的单例服务标识，可以被依赖注入到其它 Spring Bean 属性值中。</li>
+<li><strong>group</strong> 命名格式为 <code>P\_应用名\_服务名</code>，是发布者唯一标识，不允许存在两个 <code>sofa:publisher</code> 配置相同的 group 属性值。</li>
+<li><strong>sofa:channel</strong> 元素的 <strong>value</strong> 值是此发布者发送的消息类型 TOPIC 值，如果发送消息类型涉及多个 TOPIC，必须配置多个 <code>sofa:channel</code> 元素。</li>
+</ul>
+<ol>
+<li>创建消息对象（UniformEvent）。</li>
+<li>设置消息对象属性值。</li>
+<li>发送消息。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">public class MqService &#123;</span><br><span class="line"> </span><br><span class="line">    private static final Logger   logger              &#x3D; LoggerFactory.getLogger(MqService.class);</span><br><span class="line"> </span><br><span class="line">    private final static String   TOPIC               &#x3D; &quot;TP_DEFAULT&quot;;</span><br><span class="line"> </span><br><span class="line">    private final static String   EVENTCODE           &#x3D; &quot;EC_DEFAULT&quot;;</span><br><span class="line"> </span><br><span class="line">    private UniformEventPublisher mqPublisher;</span><br><span class="line"> </span><br><span class="line">    private UniformEventBuilder   uniformEventBuilder &#x3D; new DefaultUniformEventBuilder();</span><br><span class="line"> </span><br><span class="line">    public boolean publish() &#123;</span><br><span class="line">        if (logger.isInfoEnabled()) &#123;</span><br><span class="line">            logger.info(&quot;Publish a message.&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        &#x2F;* Create a message instance. *&#x2F;</span><br><span class="line">        final UniformEvent message &#x3D; uniformEventBuilder.buildUniformEvent(TOPIC, EVENTCODE);</span><br><span class="line"> </span><br><span class="line">        &#x2F;* Set the business object as an event payload. *&#x2F;</span><br><span class="line">        message.setEventPayload(buildDefaultAccount());</span><br><span class="line"> </span><br><span class="line">        &#x2F;* Mark that a runtime exception must be thrown when publishing failure. *&#x2F;</span><br><span class="line">        message.setThrowExceptionOnFailed(true);</span><br><span class="line"> </span><br><span class="line">        boolean publishSuccess &#x3D; false;</span><br><span class="line"> </span><br><span class="line">        try &#123;</span><br><span class="line">            &#x2F;* Do publish action. *&#x2F;</span><br><span class="line">            mqPublisher.publishUniformEvent(message);</span><br><span class="line">            publishSuccess &#x3D; true;</span><br><span class="line"> </span><br><span class="line">            logger.info(&quot;Public a message, success. TOPIC [&#123;&#125;] EVENTCODE [&#123;&#125;] id [&#123;&#125;] payload [&#123;&#125;]&quot;, new Object[] &#123;</span><br><span class="line">                    message.getTopic(), message.getEventCode(), message.getId(), message.getEventPayload() &#125;);</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            logger.error(&quot;Public a message, failure. TOPIC [&#123;&#125;] EVENTCODE [&#123;&#125;] error [&#123;&#125;]&quot;,</span><br><span class="line">                new Object[] &#123; message.getTopic(), message.getEventCode(), e.getMessage() &#125;, e);</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        return publishSuccess;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    private Account buildDefaultAccount() &#123;</span><br><span class="line">        Account account &#x3D; new Account();</span><br><span class="line">        account.setId(UUID.randomUUID().toString());</span><br><span class="line">        account.setAmount(new Random().nextDouble());</span><br><span class="line">        account.setGmtCreate(new Date());</span><br><span class="line">        return account;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public void setMqPublisher(UniformEventPublisher mqPublisher) &#123;</span><br><span class="line">        this.mqPublisher &#x3D; mqPublisher;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>消息对象由 <code>UniformEventBuilder</code> 负责创建，必须指定 TOPIC 和 EVENTCODE 两个参数。消息负载封装在业务对象中，并设置为 uniformEvent 的 payload 属性值。消息发送通过 <code>uniformEventPublisher</code> 对象的 <code>publisherUniformEvent</code> 方法完成，此方法可能抛出运行时异常，如果应用程序预期捕获异常并处理，必须设置 uniformEvent 对象的属性值 <code>throwExceptionOnFailed</code> 为 true，否则运行时异常不会被抛出，只会记录错误日志。</p>
+<h5 id="消费者-Consumer"><a href="#消费者-Consumer" class="headerlink" title="消费者 (Consumer)"></a>消费者 (Consumer)</h5><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Declare a consumer bean with id &quot;mqConsumer&quot; --&gt;</span><br><span class="line">&lt;sofa:consumer id&#x3D;&quot;mqConsumer&quot; group&#x3D;&quot;S_appname_service&quot;&gt;</span><br><span class="line">    &lt;sofa:listener ref&#x3D;&quot;mqMessageListener&quot;&#x2F;&gt;</span><br><span class="line">        &lt;sofa:channels&gt;</span><br><span class="line">        &lt;sofa:channel value&#x3D;&quot;TP_DEFAULT&quot;&gt;</span><br><span class="line">            &lt;sofa:event eventType&#x3D;&quot;direct&quot; eventCode&#x3D;&quot;EC_DEFAULT&quot; persistence&#x3D;&quot;true&quot;&#x2F;&gt;</span><br><span class="line">         &lt;&#x2F;sofa:channel&gt;</span><br><span class="line">    &lt;&#x2F;sofa:channels&gt;</span><br><span class="line">    &lt;sofa:binding.msg_broker&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;sofa:consumer&gt;</span><br><span class="line"> </span><br><span class="line">&lt;!-- mq message listener --&gt;</span><br><span class="line">&lt;bean id&#x3D;&quot;mqMessageListener&quot; class&#x3D;&quot;com.antcloud.tutorial.mq.endpoint.service.MqMessageListener&quot;&#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>id</strong> 是 Spring Bean 的单例服务标识，</li>
+<li><strong>group</strong> 命名格式为 <code>S\_应用名\_服务名</code>，是消费者唯一标识，不允许存在两个 <code>sofa:consumer</code> 配置相同的 group 属性值。</li>
+<li><strong>sofa:listener</strong> 元素的 <strong>ref</strong> 属性值设置为消息接监听器单例服务标识。</li>
+<li><strong>sofa:channel</strong> 元素的 <strong>value</strong> 值是此消费者订阅的消息类型 <strong>TOPIC</strong> 值，如果订阅的消息类型涉及多个 TOPIC，必须配置多个 <code>sofa:channel</code> 元素。</li>
+<li><strong>sofa:event</strong> 元素配置具体的消息订阅信息，eventType 属性值默认设置为 <code>direct</code>，eventCode 属性值设置为消息类型 eventcode 值，persistence 属性值设置为持久订阅（true）或者非持久订阅（false）。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">public class MqMessageListener implements UniformEventMessageListener &#123;</span><br><span class="line"> </span><br><span class="line">    private static final Logger logger &#x3D; LoggerFactory.getLogger(MqMessageListener.class);</span><br><span class="line"> </span><br><span class="line">    @Override</span><br><span class="line">    public void onUniformEvent(UniformEvent message, UniformEventContext context) throws Exception &#123;</span><br><span class="line"> </span><br><span class="line">        &#x2F;* get TOPIC, EVENTCODE and payload from the message instance *&#x2F;</span><br><span class="line">        final String topic &#x3D; message.getTopic();</span><br><span class="line">        final String eventcode &#x3D; message.getEventCode();</span><br><span class="line">        final String id &#x3D; message.getId();</span><br><span class="line">        final Object businessObject &#x3D; message.getEventPayload();</span><br><span class="line"> </span><br><span class="line">        logger.info(&quot;Receive a message, TOPIC [&#123;&#125;] EVENTCODE [&#123;&#125;] id [&#123;&#125;] payload [&#123;&#125;]&quot;, new Object[] &#123; topic,</span><br><span class="line">                eventcode, id, businessObject &#125;);</span><br><span class="line"> </span><br><span class="line">        try &#123;</span><br><span class="line">            boolean processSuccess &#x3D; processMessage(businessObject);</span><br><span class="line"> </span><br><span class="line">            if (!processSuccess) &#123;</span><br><span class="line">                &#x2F;* Process the message failure, set cause and rollback, the message is re-delivered later. *&#x2F;</span><br><span class="line">                context.setContextDesc(&quot;process error cause&quot;);</span><br><span class="line">                context.setRollbackOnly();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            logger.error(&quot;Process a message, failure. TOPIC [&#123;&#125;] EVENTCODE [&#123;&#125;] id [&#123;&#125;] error &#123;&#125;&quot;, new Object[] &#123;</span><br><span class="line">                    topic, eventcode, id, e.getMessage() &#125;, e);</span><br><span class="line">            &#x2F;* When any exception is thrown, the message is re-delivered later. *&#x2F;</span><br><span class="line">            throw e;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    &#x2F;* Process the business logic *&#x2F;</span><br><span class="line">    private boolean processMessage(Object businessObject) &#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>订阅消息的应用系统必须实现 <code>com.alipay.common.event.UniformEventMessageListener</code> 接口并配置在 <code>sofa:listener</code> 元素的 ref 属性值中。当消息被消息消费者接收到时，<code>com.alipay.common.event.UniformEventMessageListene.onUniformEvent</code> 会被调用，应用系统通过实现此方法执行消息消费逻辑。</p>
+<h3 id="三、任务调度"><a href="#三、任务调度" class="headerlink" title="三、任务调度"></a>三、任务调度</h3><p>依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;com.alipay.sofa&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;scheduler-enterprise-sofa-boot-starter&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p>1、实现处理器接口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * 简单任务处理器接口</span><br><span class="line"> *&#x2F;</span><br><span class="line">public interface ISimpleJobHandler extends IJobHandler &#123;</span><br><span class="line"> </span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 处理request</span><br><span class="line">     * </span><br><span class="line">     * @param context</span><br><span class="line">     * @return</span><br><span class="line">     *&#x2F;</span><br><span class="line">    ClientCommonResult handle(JobExecuteContext context);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2、实现类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class AlwaysSuccessHandler implements ISimpleJobHandler &#123;</span><br><span class="line"> </span><br><span class="line">    public static final String NAME &#x3D; &quot;ALWAYS_SUCCESS_JOB&quot;;</span><br><span class="line"> </span><br><span class="line">    @Override</span><br><span class="line">    public ClientCommonResult handle(JobExecuteContext context) throws InterruptedException &#123;</span><br><span class="line">        &#x2F;&#x2F;处理业务逻辑</span><br><span class="line">        return ClientCommonResult.buildSuccessResult();</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    @Override</span><br><span class="line">    public ThreadPoolExecutor getThreadPool() &#123;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    @Override</span><br><span class="line">    public String getName() &#123;</span><br><span class="line">        return NAME;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><strong>handle</strong>：在该方法里执行业务逻辑。</p>
+</li>
+<li><p>getThreadPool：获取一个执行该任务的线程池，如果没有设置，会使用 client 自带的线程池。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">new ThreadPoolExecutor(20,</span><br><span class="line">      300, 1, TimeUnit.HOURS, new ArrayBlockingQueue&lt;Runnable&gt;(100) &#123;&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>getName</strong>：获取这个执行器的名字，这个名字很重要，client接收到任务的触发请求时，会根据名字寻找匹配的执行器。</p>
+</li>
+</ul>
+<p><strong>说明</strong>：当任务需要按多个步骤执行时，需要写多个实现类，并在控制台开启分步。</p>
+<p>3、控制台配置发布</p>
+<h5 id="CRON-表达式"><a href="#CRON-表达式" class="headerlink" title="CRON 表达式"></a>CRON 表达式</h5><p>分为 6 或 7 个域，每一个域代表一个含义。CRON 有如下两种语法格式：</p>
+<ul>
+<li>秒 分 小时 日期 月份 星期 年</li>
+<li>秒 分 小时 日期 月份 星期</li>
+</ul>
+<p>每个域允许的值</p>
+<table>
+<thead>
+<tr>
+<th>域</th>
+<th>允许的数值</th>
+<th>允许的特殊字符</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>秒</td>
+<td>0-59</td>
+<td>- * /</td>
+<td></td>
+</tr>
+<tr>
+<td>分</td>
+<td>0-59</td>
+<td>- * /</td>
+<td></td>
+</tr>
+<tr>
+<td>小时</td>
+<td>0-23</td>
+<td>- * /</td>
+<td></td>
+</tr>
+<tr>
+<td>日期</td>
+<td>1-31</td>
+<td>- * ? / L W C</td>
+<td></td>
+</tr>
+<tr>
+<td>月份</td>
+<td>1-12</td>
+<td>JAN-DEC - * /</td>
+<td></td>
+</tr>
+<tr>
+<td>星期</td>
+<td>1-7</td>
+<td>SUN-SAT - * ? / L C #</td>
+<td>1 表示星期天，2 表示星期一，依次类推</td>
+</tr>
+<tr>
+<td>年（可选）</td>
+<td>留空，1970-2099</td>
+<td>, - * /</td>
+<td>自动生成，工具不显示该值</td>
+</tr>
+</tbody></table>
+<p>示例</p>
+<ul>
+<li><code>*/5 * * * * ?</code> 每隔 5 秒执行一次</li>
+<li><code>0 */1 * * * ?</code> 每隔 1 分钟执行一次</li>
+<li><code>0 0 2 1 * ? *</code> 每月 1 日的凌晨 2 点执行一次</li>
+<li><code>0 15 10 ? * MON-FRI</code> 周一到周五每天上午 10：15 执行作业</li>
+<li><code>0 15 10 ? 6L 2002-2006</code> 2002 年至 2006 年的每个月的最后一个星期五上午 10:15 执行作业</li>
+<li><code>0 0 23 * * ?</code> 每天 23 点执行一次</li>
+<li><code>0 0 1 * * ?</code> 每天凌晨 1 点执行一次</li>
+<li><code>0 0 1 1 * ?</code> 每月 1 日凌晨 1 点执行一次</li>
+<li><code>0 0 23 L * ?</code> 每月最后一天 23 点执行一次</li>
+<li><code>0 0 1 ? * L</code> 每周星期天凌晨 1 点执行一次</li>
+<li><code>0 26,29,33 * * * ?</code> 在 26 分、29 分、33 分执行一次</li>
+<li><code>0 0 0,13,18,21 * * ?</code> 每天的 0 点、13 点、18 点、21 点都执行一次</li>
+<li><code>0 0 10,14,16 * * ?</code> 每天上午 10 点，下午 2 点，4 点执行一次</li>
+<li><code>0 0/30 9-17 * * ?</code> 朝九晚五工作时间内每半小时执行一次</li>
+<li><code>0 0 12 ? * WED</code> 每个星期三中午 12 点执行一次</li>
+<li><code>0 0 12 * * ?</code> 每天中午 12 点触发</li>
+<li><code>0 15 10 ? * *</code> 每天上午 10:15 触发</li>
+<li><code>0 15 10 * * ?</code> 每天上午 10:15 触发</li>
+<li><code>0 15 10 * * ? *</code> 每天上午 10:15 触发</li>
+<li><code>0 15 10 * * ? 2005</code> 2005 年的每天上午 10:15 触发</li>
+<li><code>0 * 14 * * ?</code> 每天下午 2 点到 2:59 期间的每 1 分钟触发</li>
+<li><code>0 0/5 14 * * ?</code> 每天下午 2 点到 2:55 期间的每 5 分钟触发</li>
+<li><code>0 0/5 14,18 * * ?</code> 每天下午 2 点到 2:55 期间和下午 6 点到 6:55 期间的每 5 分钟触发</li>
+<li><code>0 0-5 14 * * ?</code> 每天下午 2 点到 2:05 期间的每 1 分钟触发</li>
+<li><code>0 10,44 14 ? 3 WED</code> 每年三月的星期三的下午 2:10 和 2:44 触发</li>
+<li><code>0 15 10 ? * MON-FRI</code> 周一至周五的上午 10:15 触发</li>
+<li><code>0 15 10 15 * ?</code> 每月 15 日上午 10:15 触发</li>
+<li><code>0 15 10 L * ?</code> 每月最后一日的上午 10:15 触发</li>
+<li><code>0 15 10 ? * 6L</code> 每月的最后一个星期五上午 10:15 触发</li>
+<li><code>0 15 10 ? * 6L 2002-2005</code> 2002 年至 2005 年的每月的最后一个星期五上午 10:15 触发</li>
+<li><code>0 15 10 ? * 6#3</code> 每月的第三个星期五上午 10:15 触发</li>
+</ul>
+<hr>
+<p>API网关、分布式事务、数据同步服务…</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">gump</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/03/16/%E9%98%BF%E9%87%8C%E8%9A%82%E8%9A%81%E9%87%91%E6%9C%8D%E6%8A%80%E6%9C%AF%E6%A0%88/">http://example.com/2021/03/16/%E9%98%BF%E9%87%8C%E8%9A%82%E8%9A%81%E9%87%91%E6%9C%8D%E6%8A%80%E6%9C%AF%E6%A0%88/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">不学习会被杀掉的</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://files.alexhchu.com/2021/03/18/0ea5deff04b9f.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/03/16/%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0/"><img class="prev-cover" src="https://files.alexhchu.com/2021/03/07/47c58ce170a35.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">常用设计模式学习</div></div></a></div><div class="next-post pull-right"><a href="/2021/03/16/%E6%89%8B%E5%86%99%E4%B8%80%E4%B8%AARPC%E6%A1%86%E6%9E%B6/"><img class="next-cover" src="https://files.alexhchu.com/2021/03/17/2d5ed176ee1f4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">手写一个RPC框架</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">gump</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">42</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%BF%E9%87%8C%E8%9A%82%E8%9A%81%E9%87%91%E6%9C%8D%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="toc-number">1.</span> <span class="toc-text">阿里蚂蚁金服技术栈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81SOFARPC"><span class="toc-number">1.1.</span> <span class="toc-text">一、SOFARPC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.1.1.</span> <span class="toc-text">使用步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%8F%91%E5%B8%83"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">服务发布</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%BC%95%E7%94%A8"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">服务引用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%91%E5%B8%83%E5%8F%8A%E5%BC%95%E7%94%A8-BOLT-%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">发布及引用 BOLT 服务</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97"><span class="toc-number">1.2.</span> <span class="toc-text">二、消息队列</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">使用步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%91%E5%B8%83%E8%80%85-Publisher"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">发布者 (Publisher)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B6%88%E8%B4%B9%E8%80%85-Consumer"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">消费者 (Consumer)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6"><span class="toc-number">1.3.</span> <span class="toc-text">三、任务调度</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#CRON-%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">CRON 表达式</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/03/23/Redis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/" title="Redis分布式锁"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Redis分布式锁"/></a><div class="content"><a class="title" href="/2021/03/23/Redis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/" title="Redis分布式锁">Redis分布式锁</a><time datetime="2021-03-23T12:59:36.000Z" title="发表于 2021-03-23 20:59:36">2021-03-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/03/18/RabbitMq/" title="RabbitMq"><img src="https://upimage.alexhchu.com/2021/01/31/2c83d46968fe5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="RabbitMq"/></a><div class="content"><a class="title" href="/2021/03/18/RabbitMq/" title="RabbitMq">RabbitMq</a><time datetime="2021-03-18T03:41:52.000Z" title="发表于 2021-03-18 11:41:52">2021-03-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/03/16/Java%E5%B8%B8%E8%A7%81%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" title="Java常见源码解析"><img src="https://files.alexhchu.com/2021/03/07/e21e720e8e4ea.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java常见源码解析"/></a><div class="content"><a class="title" href="/2021/03/16/Java%E5%B8%B8%E8%A7%81%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" title="Java常见源码解析">Java常见源码解析</a><time datetime="2021-03-16T15:52:10.000Z" title="发表于 2021-03-16 23:52:10">2021-03-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/03/16/%E4%BB%80%E4%B9%88%E6%98%AFDDD%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="什么是DDD微服务"><img src="https://files.alexhchu.com/2021/03/17/a2c25ffd6fe4c.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="什么是DDD微服务"/></a><div class="content"><a class="title" href="/2021/03/16/%E4%BB%80%E4%B9%88%E6%98%AFDDD%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="什么是DDD微服务">什么是DDD微服务</a><time datetime="2021-03-16T15:51:43.000Z" title="发表于 2021-03-16 23:51:43">2021-03-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/03/16/%E5%B8%B8%E7%94%A8springboot%E8%84%9A%E6%89%8B%E6%9E%B6/" title="常用springboot脚手架"><img src="https://files.alexhchu.com/2021/03/07/2cb552b564fa3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="常用springboot脚手架"/></a><div class="content"><a class="title" href="/2021/03/16/%E5%B8%B8%E7%94%A8springboot%E8%84%9A%E6%89%8B%E6%9E%B6/" title="常用springboot脚手架">常用springboot脚手架</a><time datetime="2021-03-16T15:50:42.000Z" title="发表于 2021-03-16 23:50:42">2021-03-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By gump</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
