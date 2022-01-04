@@ -52,7 +52,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2021-10-07 22:20:58'
+  postUpdate: '2022-01-04 23:20:58'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -134,211 +134,104 @@
           document.documentElement.classList.remove('hide-aside')
         }
       }
-    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/tx.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">50</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://files.alexhchu.com/2021/03/07/b448801e400bf.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">不学习会被杀掉的</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">不学习会被杀掉的</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/cooper12138" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:994739211@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/02/28/%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" title="什么是数据结构与算法">     <img class="post_bg" src="https://files.alexhchu.com/2021/03/03/864a0892aa8db.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="什么是数据结构与算法"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/02/28/%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" title="什么是数据结构与算法">什么是数据结构与算法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-02-28T14:45:41.000Z" title="发表于 2021-02-28 22:45:41">2021-02-28</time></span></div><div class="content">数组与链表的应用数组的内存模型1int[] data &#x3D; new int[5];
-
-通过上面这段声明，计算机会在内存中分配一段连续的内存空间给这个 data 数组。
-
-
-获取数组元素的方式是按照以下的公式进行获取的：
-1base_address + index（索引）× data_size（数据类型大小）
-
-data 这个数组被分配到的起始地址是 0x80000000，是因为 int 类型数据占据了 4 个字节的空间，如果我们要访问第 5 个元素 data[4] 的时候，按照上面的公式，只需要取得 0x80000000 + 4 × 4 = 0x80000010 这个地址的内容就可以了。随机访问的背后原理其实也就是利用了这个公式达到了同等的时间访问到一组数据中的任意元素。
-12345678public void add(int index, E element) &#123;    ...    System.arraycopy(elementData, index,                     elementData, index + 1,             ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/02/24/%E6%B6%88%E6%81%AF%E6%8A%95%E9%80%92%EF%BC%8C%E5%B9%82%E7%AD%89/" title="什么是消息投递，幂等">     <img class="post_bg" src="https://upimage.alexhchu.com/2020/12/28/ffd245cdd5762.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="什么是消息投递，幂等"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/02/24/%E6%B6%88%E6%81%AF%E6%8A%95%E9%80%92%EF%BC%8C%E5%B9%82%E7%AD%89/" title="什么是消息投递，幂等">什么是消息投递，幂等</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-02-24T01:59:16.000Z" title="发表于 2021-02-24 09:59:16">2021-02-24</time></span></div><div class="content">前言我们小伙伴应该都听说够消息中间件MQ，如：RabbitMQ，RocketMQ，Kafka等。引入中间件的好处可以起到抗高并发，削峰，业务解耦的作用。
-
-如上图：
-
-（1）订单服务投递消息给MQ中间件 （2）物流服务监听MQ中间件消息，从而进行消费
-
-我们这篇文章讨论一下，如何保障订单服务把消息成功投递给MQ中间件，以RabbitMQ举例。
-分析问题小伙伴们对此会有些疑问，订单服务发起消息服务，返回成功不就成功了吗？如下面的伪代码：
-
-上面代码中，一般发送消息就是这么写的，小伙伴们觉得有什么问题吗？
-下边说一个场景，如果MQ服务器突然宕机了会出现什么情况？是不是我们订单服务发过去的消息全部没有了吗？是的，一般MQ中间件为了提高系统的吞吐量会把消息保存在内存中，如果不作其他处理，MQ服务器一旦宕机，消息将全部丢失。这个是业务不允许的，造成很大的影响，关注公众号码猿技术专栏，获取更多面试资源。
-持久化有经验的小伙伴会说，我知道一个方法就是把消息持久化，RabbitMQ中发消息的时候会有个durable参数可以设置，设置为true，就会持久化。
-
-这样的话MQ服务器即使宕机，重启后磁盘文件 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/01/31/Java%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="Java性能优化">     <img class="post_bg" src="https://upimage.alexhchu.com/2021/01/31/93849ea2b3f13.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java性能优化"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/01/31/Java%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="Java性能优化">Java性能优化</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-31T08:44:02.000Z" title="发表于 2021-01-31 16:44:02">2021-01-31</time></span></div><div class="content">性能优化，有哪些衡量指标？需要注意什么？性能，就是使用有限的资源在有限的时间内完成工作。最主要的衡量因素就是时间。
-
-吞吐量和响应速度QPS 代表每秒查询的数量，TPS 代表每秒事务的数量，HPS 代表每秒的 HTTP 请求数量等，这都是常用的与吞吐量相关的量化指标。
-响应时间衡量平均响应时间：AVG  所有的请求耗时加起来，然后除以请求的次数。
-百分位数：TP 值  和中位数、平均数等是类似的
-并发量指系统同时能处理的请求数量，这个指标反映了系统的负载能力。
-
-复用优化缓冲和缓存
-缓冲（Buffer），常见于对数据的暂存，然后批量传输或者写入。多使用顺序方式，用来缓解不同设备之间频繁地、缓慢地随机写，缓冲主要针对的是写操作。
-缓存（Cache），常见于对已读取数据的复用，通过将它们缓存在相对高速的区域，缓存主要针对的是读操作。
-对于对象的池化操作 ，比如数据库连接池、线程池等。由于这些对象的创建和销毁成本都比较大，我们在使用之后，也会将这部分对象暂时存储，下次用的时候，就不用再走一遍耗时的初始化操作了。
-计算优化</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/01/18/%E4%BB%80%E4%B9%88%E6%98%AFELK%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/" title="什么是ELK日志系统">     <img class="post_bg" src="https://upimage.alexhchu.com/2020/12/28/af6a691ce72d9.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="什么是ELK日志系统"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/01/18/%E4%BB%80%E4%B9%88%E6%98%AFELK%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/" title="什么是ELK日志系统">什么是ELK日志系统</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-18T14:22:17.000Z" title="发表于 2021-01-18 22:22:17">2021-01-18</time></span></div><div class="content">ELKElasticsearch、Logstash 和 Kiabana组成一个日志分析平台 。
-Elasticsearch分布式的 Restful 风格的搜索和数据分析引擎。
-Logstash收集服务器日志，具有实时管道功能，可以动态地将来自不同数据源的数据统一起来，并将数据标准化到您所选择的目的地。
-
-输入
-过滤器
-输出
-
-Kibana数据面板。
-ELK工作流程
-
-ELK 平台搭建Elasticsearch安装
-下载Elasticsearch 7.6.2的docker镜像：
-
-1docker pull elasticsearch:7.6.2
-
-
-修改虚拟内存区域大小，否则会因为过小而无法启动:
-
-1sysctl -w vm.max_map_count=262144
-
-
-使用如下命令启动Elasticsearch服务：
-
-123456docker run -p 9200:9200 -p 9300:9300 --name elasticsearch \-e &quot;discovery.type=single-node&quot; \-e &quot;cluster.name=elas ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/01/15/%E4%BB%80%E4%B9%88%E6%98%AFNetty/" title="什么是Netty">     <img class="post_bg" src="https://upimage.alexhchu.com/2020/12/28/50b488633bbbe.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="什么是Netty"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/01/15/%E4%BB%80%E4%B9%88%E6%98%AFNetty/" title="什么是Netty">什么是Netty</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-15T15:46:28.000Z" title="发表于 2021-01-15 23:46:28">2021-01-15</time></span></div><div class="content">Netty简介…
-Netty 编解码相关…
-ByteBuf 与内存管理…
-实战…
-Netty 核心源码解析…
-从 0 到 1 实现 RPC…
-</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/01/11/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA/" title="深入理解java虚拟机">     <img class="post_bg" src="https://upimage.alexhchu.com/2020/12/28/bde1b5ebb0254.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="深入理解java虚拟机"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/01/11/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA/" title="深入理解java虚拟机">深入理解java虚拟机</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-11T14:31:05.000Z" title="发表于 2021-01-11 22:31:05">2021-01-11</time></span></div><div class="content">JVM内存管理JVM 内存布局
-
-JVM 堆中的数据是共享的，是占用内存最大的一块区域。
-
-
-可以执行字节码的模块叫作执行引擎。
-
-
-执行引擎在线程切换时怎么恢复？依靠的就是程序计数器。
-
-
-JVM 的内存划分与多线程是息息相关的。像我们程序中运行时用到的栈，以及本地方法栈，它们的维度都是线程。
-
-
-本地内存包含元数据区和一些直接内存。
-
-虚拟机栈在每个 Java 方法被调用的时候，都会创建一个栈帧，并入栈。
-一旦完成相应的调用，则出栈。所有的栈帧都出栈后，线程也就结束了。每个栈帧，都包含四个区域：
-
-局部变量表
-
-
-操作数栈
-
-
-动态连接
-
-
-返回地址
-
-本地方法栈是和虚拟机栈非常相似的一个区域，它服务的对象是 native 方法。
-程序计数器存的，就是当前线程执行的进度
-还存储了当前正在运行的流程，包括正在执行的指令、跳转、分支、循环、异常处理等。
-堆是 JVM 上最大的内存区域
-存储对象
-垃圾回收，操作的对象就是堆。
-随着对象的频繁创建，堆空间占用的越来越多，就需要不定期的对不再使用的对象进行回收。这个在 Java 中，就叫作 GC（Garbage Collection）
-对象创 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/01/08/%E5%BC%80%E5%8F%91%E5%BF%85%E5%A4%87idea%E6%93%8D%E4%BD%9C/" title="开发必备idea操作">     <img class="post_bg" src="https://upimage.alexhchu.com/2020/12/28/3e3da43f59b1e.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="开发必备idea操作"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/01/08/%E5%BC%80%E5%8F%91%E5%BF%85%E5%A4%87idea%E6%93%8D%E4%BD%9C/" title="开发必备idea操作">开发必备idea操作</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-08T01:52:16.000Z" title="发表于 2021-01-08 09:52:16">2021-01-08</time></span></div><div class="content">idea神操作Ctrl
-
-
-快捷键
-介绍
-
-
-
-Ctrl + Y
-删除光标所在行 或 删除选中的行 （必备）
-
-
-Ctrl + D
-复制光标所在行 或 复制选择内容，并把复制内容插入光标位置下面 （必备）
-
-
-Ctrl + W
-递进式选择代码块。可选中光标所在的单词或段落，连续按会在原有选中的基础上再扩展选中范围 （必备）
-
-
-Ctrl + E
-显示最近打开的文件记录列表
-
-
-Ctrl + N
-根据输入的 类名 查找类文件
-
-
-Ctrl + Q
-光标所在的变量 / 类名 / 方法名等上面（也可以在提示补充的时候按），显示文档内容
-
-
-Ctrl + U
-前往当前光标所在的方法的父类的方法 / 接口定义
-
-
-Ctrl + B
-进入光标所在的方法/变量的接口或是定义出，等效于 Ctrl + 左键单击
-
-
-Ctrl + K
-版本控制提交项目，需要此项目有加入到版本控制才可用
-
-
-Ctrl + T
-版本控制更新项目，需要此项目有加入到版本控制才可用
-
-
-Ctrl + H
-显示当前类的层次结构
-
-
-Ctrl + O
-选择可重写的方法
-
-
-Ctrl + I
-选择可继承的方法
-
-
-Ctrl + +
-展 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/01/07/%E5%BC%80%E5%8F%91%E5%BF%85%E5%A4%87linux%E5%91%BD%E4%BB%A4/" title="开发必备linux命令">     <img class="post_bg" src="https://upimage.alexhchu.com/2020/12/27/819e88f3154a8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="开发必备linux命令"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/01/07/%E5%BC%80%E5%8F%91%E5%BF%85%E5%A4%87linux%E5%91%BD%E4%BB%A4/" title="开发必备linux命令">开发必备linux命令</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-07T13:04:50.000Z" title="发表于 2021-01-07 21:04:50">2021-01-07</time></span></div><div class="content">常用命令(含docker/mysql)
-find   
-
-ls   ls -lh： 显示MB ，ls -ltr：  按时间升序，ls -F：  显示文件类型
-
-pwd
-
-cd
-
-mkdir   mkdir -p: 创建路径文件夹
-
-df         df -h：显示磁盘使用量
-
-rm        rm -r ：遍历删除
-
-mv       
-
-cp           拷贝
-
-scp         传输                           scp -r  /usr/bak   &#114;&#111;&#x6f;&#116;&#64;&#x31;&#x39;&#50;&#x2e;&#49;&#x36;&#x38;&#x2e;&#x37;&#55;&#x2e;&#55;&#53;:/opt/bak
-
-rsync      快一点的传输           rsync  -avzP  /usr/bak   &#114;&#x6f;&#111;&#x74;&#x40;&#49;&#57;&#x32;&#46;&#49;&#x36;&#x38;&#x2e;&#x37;& ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/12/14/Transactional%E5%A4%B1%E6%95%88%E5%9C%BA%E6%99%AF/" title="Transactional失效场景">     <img class="post_bg" src="https://upimage.alexhchu.com/2020/12/28/ffd245cdd5762.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Transactional失效场景"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/12/14/Transactional%E5%A4%B1%E6%95%88%E5%9C%BA%E6%99%AF/" title="Transactional失效场景">Transactional失效场景</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-12-14T11:27:42.000Z" title="发表于 2020-12-14 19:27:42">2020-12-14</time></span></div><div class="content">@Transactional 注解
-它能保证方法内多个数据库操作要么同时成功、要么同时失败。
-一、事务主要分为编程式事务和声明式事务两种。
-编程式事务：是指在代码中手动的管理事务的提交、回滚等操作，代码侵入性比较强，如下示例：
-1234567try &#123;    &#x2F;&#x2F;TODO something     transactionManager.commit(status);&#125; catch (Exception e) &#123;    transactionManager.rollback(status);    thrownew InvoiceApplyException(&quot;异常失败&quot;);&#125;
-
-声明式事务：基于AOP面向切面的，它将具体业务与事务处理部分解耦，代码侵入性很低，所以在实际开发中声明式事务用的比较多。声明式事务也有两种实现方式，一是基于TX和AOP的xml配置文件方式，二种就是基于@Transactional 注解了。
-123456@Transactional    @GetMapping(&quot;&#x ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/11/27/hexo%E6%90%AD%E5%BB%BA/" title="hexo搭建">     <img class="post_bg" src="https://upimage.alexhchu.com/2020/12/27/ebc3bc1edfa2b.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo搭建"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/27/hexo%E6%90%AD%E5%BB%BA/" title="hexo搭建">hexo搭建</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-11-27T15:31:18.000Z" title="发表于 2020-11-27 23:31:18">2020-11-27</time></span></div><div class="content">Hexo搭建
-1、安装Node.js 官网：https://nodejs.org/zh-cn/
-​    建议使用 Node.js 10.0 及以上版本，最新版本貌似和hexo5有冲突。
-​    一路next傻瓜操作
-2、安装hexocmd输入
-1npm install -g hexo-cli
-
-3、建站Github Page配置参见官网：https://pages.github.com/
-记得本地hexo仓库要关联到github page 
-1git remote add origin github.com&#x2F;你的github名字&#x2F;你的github名字.github.io.git
-
-新建hexo文件夹，打开git bash，一步步输入
-12345678910&#x2F;&#x2F;初始化hexo init&#x2F;&#x2F;安装依赖npm install&#x2F;&#x2F;生成文件hexo g&#x2F;&#x2F;开启服务hexo s&#x2F;&#x2F;本地启动http:&#x2F;&#x2F;localhost:4000
-
-大功告成，放个鞭炮庆祝下 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/3/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#content-inner">5</a><a class="extend next" rel="next" href="/page/5/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/tx.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">gump</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">50</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://gitee.com/gump12138"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/cooper12138" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:994739211@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">雄关漫道真如铁，而今迈步从头越。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/09/28/web%E5%AE%89%E5%85%A8/" title="web安全"><img src="https://files.alexhchu.com/2021/03/07/b448801e400bf.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="web安全"/></a><div class="content"><a class="title" href="/2021/09/28/web%E5%AE%89%E5%85%A8/" title="web安全">web安全</a><time datetime="2021-09-28T14:12:27.000Z" title="发表于 2021-09-28 22:12:27">2021-09-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/12/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF/" title="分布式技术"><img src="https://files.alexhchu.com/2021/03/07/b448801e400bf.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="分布式技术"/></a><div class="content"><a class="title" href="/2021/09/12/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF/" title="分布式技术">分布式技术</a><time datetime="2021-09-12T14:45:58.000Z" title="发表于 2021-09-12 22:45:58">2021-09-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/08/18/leetcode/" title="leetcode"><img src="https://files.alexhchu.com/2021/03/07/b448801e400bf.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="leetcode"/></a><div class="content"><a class="title" href="/2021/08/18/leetcode/" title="leetcode">leetcode</a><time datetime="2021-08-18T14:57:47.000Z" title="发表于 2021-08-18 22:57:47">2021-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/08/14/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93/" title="分布式数据库"><img src="https://files.alexhchu.com/2021/07/12/192049a743c9a.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="分布式数据库"/></a><div class="content"><a class="title" href="/2021/08/14/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93/" title="分布式数据库">分布式数据库</a><time datetime="2021-08-14T13:47:38.000Z" title="发表于 2021-08-14 21:47:38">2021-08-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/13/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%E4%BA%8C/" title="redis设计与实现二"><img src="https://files.alexhchu.com/2021/07/12/192049a743c9a.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="redis设计与实现二"/></a><div class="content"><a class="title" href="/2021/07/13/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%E4%BA%8C/" title="redis设计与实现二">redis设计与实现二</a><time datetime="2021-07-13T14:41:15.000Z" title="发表于 2021-07-13 22:41:15">2021-07-13</time></div></div></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/09/"><span class="card-archive-list-date">九月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/08/"><span class="card-archive-list-date">八月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/07/"><span class="card-archive-list-date">七月 2021</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/05/"><span class="card-archive-list-date">五月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/04/"><span class="card-archive-list-date">四月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/03/"><span class="card-archive-list-date">三月 2021</span><span class="card-archive-list-count">18</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/02/"><span class="card-archive-list-date">二月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/01/"><span class="card-archive-list-date">一月 2021</span><span class="card-archive-list-count">6</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">50</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-10-07T14:20:58.691Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By gump</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="84943176" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-autoplay="false" data-theme="#2980b9" data-loop="all" data-order="random" data-preload="auto" data-volume="0.4" data-mutex="true" data-listFolded="true" data-listmaxheight="340px" data-storagename="metingjs" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/tx.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://s2.loli.net/2022/01/04/miyHDJcY6S9Nqk7.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">不学习会被杀掉的</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">不学习会被杀掉的</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/cooper12138" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:994739211@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/07/09/Innodb/" title="什么是InnoDb">     <img class="post_bg" src="https://hankz.oss-cn-hangzhou.aliyuncs.com/wallhaven-722dqy.jpg?Expires=1641308796&amp;OSSAccessKeyId=TMP.3KezPLhgmhn5znKjfTswsQii51wqNh9j8FW7rD2EafTevRAynvHr1K8PgEYNBXhWA58vnA4cvNymqv6S6Bzg7bZAntCVvZ&amp;Signature=KEu9L9aI4hRV0emw4ib9jTS8sMQ%3D" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="什么是InnoDb"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/09/Innodb/" title="什么是InnoDb">什么是InnoDb</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-07-09T15:31:18.000Z" title="发表于 2020-07-09 23:31:18">2020-07-09</time></span></div><div class="content">InnoDb:
+InnoDB将数据划分为若干个页，以页作为磁盘和内存之间交互的基本单位，InnoDB中页的大小一般为 16 KB。也就是在一般情况下，一次最少从磁盘中读取16KB的内容到内存中，一次最少把内存中的16KB内容刷新到磁盘中。
+COMPACT行格式
+从图中可以看出来，一条完整的记录其实可以被分为记录的额外信息和记录的真实数据两大部分
+变长字段长度列表MySQL支持一些变长的数据类型，比如VARCHAR(M)、VARBINARY(M)、各种TEXT类型，各种BLOB类型，我们也可以把拥有这些数据类型的列称为变长字段，变长字段中存储多少字节的数据是不固定的，所以我们在存储真实数据的时候需要顺便把这些数据占用的字节数也存起来，这样才不至于把MySQL服务器搞懵，所以这些变长字段占用的存储空间分为两部分：
+
+真正的数据内容
+占用的字节数
+
+在Compact行格式中，把所有变长字段的真实数据占用的字节长度都存放在记录的开头部位，从而形成一个变长字段长度列表，各变长字段数据占用的字节数按照列的顺序逆序存放，我们再次强调一遍，是逆序存放！
+变长字段长度列表中只存储值为 非NULL 的列内 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/07/09/%E4%BB%80%E4%B9%88%E6%98%AFRedis/" title="什么是Redis">     <img class="post_bg" src="https://hankz.oss-cn-hangzhou.aliyuncs.com/wallhaven-6oj73l.jpg?Expires=1641308721&amp;OSSAccessKeyId=TMP.3KezPLhgmhn5znKjfTswsQii51wqNh9j8FW7rD2EafTevRAynvHr1K8PgEYNBXhWA58vnA4cvNymqv6S6Bzg7bZAntCVvZ&amp;Signature=EKTKHB1zNERL8X8phIBdDRN6LmQ%3D" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="什么是Redis"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/09/%E4%BB%80%E4%B9%88%E6%98%AFRedis/" title="什么是Redis">什么是Redis</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-07-09T15:31:18.000Z" title="发表于 2020-07-09 23:31:18">2020-07-09</time></span></div><div class="content">Redis
+redis 简介简单来说 redis 就是一个数据库，不过与传统数据库不同的是 redis 的数据是存在内存中的，所以读写速度非常快，因此 redis 被广泛应用于缓存方向。另外，redis 也经常用来做分布式锁。redis 提供了多种数据类型来支持不同的业务场景。除此之外，redis 支持事务 、持久化、LUA脚本、LRU驱动事件、多种集群方案。
+为什么要用 redis/为什么要用缓存主要从“高性能”和“高并发”这两点来看待这个问题。
+高性能：
+假如用户第一次访问数据库中的某些数据。这个过程会比较慢，因为是从硬盘上读取的。将该用户访问的数据存在缓存中，这样下一次再访问这些数据的时候就可以直接从缓存中获取了。操作缓存就是直接操作内存，所以速度相当快。如果数据库中的对应数据改变的之后，同步改变缓存中相应的数据即可！
+
+高并发：
+直接操作缓存能够承受的请求是远远大于直接访问数据库的，所以我们可以考虑把数据库中的部分数据转移到缓存中去，这样用户的一部分请求会直接到缓存这里而不用经过数据库。
+
+为什么要用 redis 而不用 map/guava 做缓存?缓存分为本地缓存和分布式缓存 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/07/09/docker%E6%95%99%E7%A8%8B/" title="什么是Docker">     <img class="post_bg" src="https://hankz.oss-cn-hangzhou.aliyuncs.com/wallhaven-6ok5wl.jpg?Expires=1641308777&amp;OSSAccessKeyId=TMP.3KezPLhgmhn5znKjfTswsQii51wqNh9j8FW7rD2EafTevRAynvHr1K8PgEYNBXhWA58vnA4cvNymqv6S6Bzg7bZAntCVvZ&amp;Signature=v6VOWUZaPqq8Gvby9z2Ekfi6FpI%3D" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="什么是Docker"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/09/docker%E6%95%99%E7%A8%8B/" title="什么是Docker">什么是Docker</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-07-09T15:31:18.000Z" title="发表于 2020-07-09 23:31:18">2020-07-09</time></span></div><div class="content">1、简介Docker是一个开源的应用容器引擎；是一个轻量级容器技术；
+Docker支持将软件编译成一个镜像；然后在镜像中各种软件做好配置，将镜像发布出去，其他使用者可以直接使用这个镜像；
+运行中的这个镜像称为容器，容器启动是非常快速的。
+2、核心概念docker主机(Host)：安装了Docker程序的机器（Docker直接安装在操作系统之上）；
+docker客户端(Client)：连接docker主机进行操作；
+docker仓库(Registry)：用来保存各种打包好的软件镜像；
+docker镜像(Images)：软件打包好的镜像；放在docker仓库中；
+docker容器(Container)：镜像启动后的实例称为一个容器；容器是独立运行的一个或一组应用
+使用Docker的步骤：
+1）、安装Docker
+2）、去Docker仓库找到这个软件对应的镜像；
+3）、使用Docker运行这个镜像，这个镜像就会生成一个Docker容器；
+4）、对容器的启动停止就是对软件的启动停止；
+3、安装Docker1）、安装linux虚拟机​    1）、VMWare、VirtualBox（安装）；
+​ ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/07/09/%E4%BB%80%E4%B9%88%E6%98%AFJava%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" title="什么是JAVA内存模型">     <img class="post_bg" src="https://hankz.oss-cn-hangzhou.aliyuncs.com/wallhaven-57gyw9.jpg?Expires=1641308693&amp;OSSAccessKeyId=TMP.3KezPLhgmhn5znKjfTswsQii51wqNh9j8FW7rD2EafTevRAynvHr1K8PgEYNBXhWA58vnA4cvNymqv6S6Bzg7bZAntCVvZ&amp;Signature=b4bi33hgMfapcumejpLPzZO5EGM%3D" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="什么是JAVA内存模型"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/09/%E4%BB%80%E4%B9%88%E6%98%AFJava%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" title="什么是JAVA内存模型">什么是JAVA内存模型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-07-09T15:31:18.000Z" title="发表于 2020-07-09 23:31:18">2020-07-09</time></span></div><div class="content">JAVA内存模型
+JVM 内存结构和 Java 虚拟机的运行时区域有关；
+Java 内存模型和 Java 的并发编程有关。
+
+JVM内存模型
+6个区域
+堆区（Heap）：堆是存储类实例和数组的，通常是内存中最大的一块。实例很好理解，比如 new Object() 就会生成一个实例；而数组也是保存在堆上面的，因为在 Java 中，数组也是对象。
+虚拟机栈（Java Virtual Machine Stacks）：它保存局部变量和部分结果，并在方法调用和返回中起作用。
+方法区（Method Area）：它存储每个类的结构，例如运行时的常量池、字段和方法数据，以及方法和构造函数的代码，包括用于类初始化以及接口初始化的特殊方法。
+本地方法栈（Native Method Stacks）：与虚拟机栈基本类似，区别在于虚拟机栈为虚拟机执行的 Java 方法服务，而本地方法栈则是为 Native 方法服务。
+程序计数器（The PC Register）：是最小的一块内存区域，它的作用通常是保存当前正在执行的 JVM 指令地址。
+运行时常量池（Run-Time Constant Pool）：是方法区的一 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/07/09/%E4%BB%80%E4%B9%88%E6%98%AFSpringSecurity/" title="什么是Spring Security">     <img class="post_bg" src="https://hankz.oss-cn-hangzhou.aliyuncs.com/wallhaven-6oj73l.jpg?Expires=1641308721&amp;OSSAccessKeyId=TMP.3KezPLhgmhn5znKjfTswsQii51wqNh9j8FW7rD2EafTevRAynvHr1K8PgEYNBXhWA58vnA4cvNymqv6S6Bzg7bZAntCVvZ&amp;Signature=EKTKHB1zNERL8X8phIBdDRN6LmQ%3D" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="什么是Spring Security"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/09/%E4%BB%80%E4%B9%88%E6%98%AFSpringSecurity/" title="什么是Spring Security">什么是Spring Security</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-07-09T15:31:18.000Z" title="发表于 2020-07-09 23:31:18">2020-07-09</time></span></div><div class="content">Spring Security教程
+相对于 Shiro，在 SSM/SSH 中整合 Spring Security 都是比较麻烦的操作，所以，Spring Security 虽然功能比 Shiro 强大，但是使用反而没有 Shiro 多（Shiro 虽然功能没有 Spring Security 多，但是对于大部分项目而言，Shiro 也够用了）。
+自从有了 Spring Boot 之后，Spring Boot 对于 Spring Security 提供了 自动化配置方案，可以零配置使用 Spring Security。
+因此，一般来说，常见的安全管理技术栈的组合是这样的：
+
+SSM + Shiro
+Spring Boot/Spring Cloud + Spring Security
+
+1.项目创建pom.xml 中的 Spring Security 依赖：
+1234&lt;dependency&gt;    &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;spring-b ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/07/09/%E4%BB%80%E4%B9%88%E6%98%AFCAS%E5%8E%9F%E7%90%86/" title="什么是CAS">     <img class="post_bg" src="https://hankz.oss-cn-hangzhou.aliyuncs.com/wallhaven-5736e3.jpg?Expires=1641308658&amp;OSSAccessKeyId=TMP.3KezPLhgmhn5znKjfTswsQii51wqNh9j8FW7rD2EafTevRAynvHr1K8PgEYNBXhWA58vnA4cvNymqv6S6Bzg7bZAntCVvZ&amp;Signature=xmT8wgBgY2Wrf5iwGCLr9kg8fhU%3D" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="什么是CAS"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/09/%E4%BB%80%E4%B9%88%E6%98%AFCAS%E5%8E%9F%E7%90%86/" title="什么是CAS">什么是CAS</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-07-09T15:31:18.000Z" title="发表于 2020-07-09 23:31:18">2020-07-09</time></span></div><div class="content">CAS（ Compare-And-Swap）”比较并交换”（乐观锁的原理）CAS 的特点是避免使用互斥锁，当多个线程同时使用 CAS 更新同一个变量时，只有其中一个线程能够操作成功，而其他线程都会更新失败。更新失败的线程并不会被阻塞，而是被告知这次由于竞争而导致的操作失败，但还可以再次尝试。
+
+CAS 的思路
+CAS 相关的指令是具备原子性的
+CAS 有三个操作数：内存值 V、预期值 A、要修改的值 B。
+核心思路：仅当预期值 A 和当前的内存值 V 相同时，才将内存值修改为 B。
+下面我们用图解和例子的方式，让 CAS 的过程变得更加清晰，如下图所示：
+
+假设有两个线程，分别使用两个 CPU，它们都想利用 CAS 来改变右边的变量的值。我们先来看线程 1，它使用 CPU 1，假设它先执行，它期望当前的值是 100，并且想将其改成 150。在执行的时候，它会去检查当前的值是不是 100，发现真的是 100，所以可以改动成功，而当改完之后，右边的值就会从 100 变成 150。
+
+如上图所示，假设现在才刚刚轮到线程 2 所使用的 CPU 2 来执行，它想要把这个值从 100 改成 200 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/04/13/%E4%BB%80%E4%B9%88%E6%98%AFMockito/" title="什么是Mockito">     <img class="post_bg" src="https://hankz.oss-cn-hangzhou.aliyuncs.com/wallhaven-57gyw9.jpg?Expires=1641308693&amp;OSSAccessKeyId=TMP.3KezPLhgmhn5znKjfTswsQii51wqNh9j8FW7rD2EafTevRAynvHr1K8PgEYNBXhWA58vnA4cvNymqv6S6Bzg7bZAntCVvZ&amp;Signature=b4bi33hgMfapcumejpLPzZO5EGM%3D" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="什么是Mockito"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/04/13/%E4%BB%80%E4%B9%88%E6%98%AFMockito/" title="什么是Mockito">什么是Mockito</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-04-13T09:47:55.000Z" title="发表于 2020-04-13 17:47:55">2020-04-13</time></span></div><div class="content">Mockito1 Mockito 介绍1.1 Mockito是什么？Mockito是mocking框架，它让你用简洁的API做测试。而且Mockito简单易学，它可读性强和验证语法简洁。
+1.2 为什么需要Mock测试驱动的开发( TDD)要求我们先写单元测试，再写实现代码。在写单元测试的过程中，我们往往会遇到要测试的类有很多依赖，这些依赖的类/对象/资源又有别的依赖，从而形成一个大的依赖树，要在单元测试的环境中完整地构建这样的依赖，是一件很困难的事情。如下图所示： 
+
+为了测试类A，我们需要Mock B类和C类（用虚拟对象来代替）如下图所示：
+
+1.3 Stub和Mock异同[1]
+相同：Stub和Mock都是模拟外部依赖
+不同：Stub是完全模拟一个外部依赖， 而Mock还可以用来判断测试通过还是失败 
+
+1.4 Mockito资源
+官网： http://mockito.org
+API文档：http://docs.mockito.googlecode.com/hg/org/mockito/Mockito.html
+项目源码：https://github.com/mockito/mo ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/04/13/%E7%AC%AC%E4%B8%80%E5%A4%A9/" title="第一天">     <img class="post_bg" src="https://hankz.oss-cn-hangzhou.aliyuncs.com/wallhaven-j3328w.jpg?OSSAccessKeyId=LTAI5t6KzqtMi5NUMJdWd5GV&amp;Expires=1641311715&amp;Signature=MiUgbkfmbC6POQ6xmM%2FNOWLQd9w%3D" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第一天"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/04/13/%E7%AC%AC%E4%B8%80%E5%A4%A9/" title="第一天">第一天</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-04-13T09:47:55.000Z" title="发表于 2020-04-13 17:47:55">2020-04-13</time></span></div><div class="content">哈喽啊，以后会在这里记录我的java学习之路，加油！
+种一棵树，最好的时间是十年前，其次就是现在。
+</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/04/13/%E4%BB%80%E4%B9%88%E6%98%AFGit/" title="什么是GIT">     <img class="post_bg" src="https://hankz.oss-cn-hangzhou.aliyuncs.com/wallhaven-72pj33.png?Expires=1641308875&amp;OSSAccessKeyId=TMP.3KezPLhgmhn5znKjfTswsQii51wqNh9j8FW7rD2EafTevRAynvHr1K8PgEYNBXhWA58vnA4cvNymqv6S6Bzg7bZAntCVvZ&amp;Signature=luRHPcUFRaFvRoCbQ4H8nQ6uYuk%3D" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="什么是GIT"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/04/13/%E4%BB%80%E4%B9%88%E6%98%AFGit/" title="什么是GIT">什么是GIT</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-04-13T09:47:55.000Z" title="发表于 2020-04-13 17:47:55">2020-04-13</time></span></div><div class="content">配置SSH：
+配置账号：
+ git config –global user.name “your name” git config –global user.email “&#x79;&#111;&#117;&#114;&#x5f;&#x65;&#109;&#97;&#x69;&#x6c;&#x40;&#x79;&#111;&#x75;&#x72;&#101;&#109;&#97;&#x69;&#108;&#x2e;&#x63;&#111;&#x6d;“
+提交代码：
+git sgit add .git commit -m “提交内容描述”git pull origin ‘分支’git push origin ‘分支’
+切换分支：
+git fetch origin ‘分支’
+git checkout -b ’分支’  origin/’分支’
+
+切换分支：git checkout 分支名
+如果切换失败：
+
+
+git fetch
+git checkout  -b 分支名 origin/分支名
+
+回退版本：
+在一个分支中
+git reset –soft head~11表示回退1个版本
+2表示回 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/3/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="page-number current">4</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/tx.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">gump</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://gitee.com/gump12138"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/cooper12138" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:994739211@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">雄关漫道真如铁，而今迈步从头越。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/10/07/%E4%BB%80%E4%B9%88%E6%98%AFService-Mesh/" title="什么是Service-Mesh"><img src="https://hankz.oss-cn-hangzhou.aliyuncs.com/wallhaven-6oj73l.jpg?Expires=1641308721&amp;OSSAccessKeyId=TMP.3KezPLhgmhn5znKjfTswsQii51wqNh9j8FW7rD2EafTevRAynvHr1K8PgEYNBXhWA58vnA4cvNymqv6S6Bzg7bZAntCVvZ&amp;Signature=EKTKHB1zNERL8X8phIBdDRN6LmQ%3D" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="什么是Service-Mesh"/></a><div class="content"><a class="title" href="/2021/10/07/%E4%BB%80%E4%B9%88%E6%98%AFService-Mesh/" title="什么是Service-Mesh">什么是Service-Mesh</a><time datetime="2021-10-07T14:45:19.000Z" title="发表于 2021-10-07 22:45:19">2021-10-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/28/web%E5%AE%89%E5%85%A8/" title="web安全"><img src="https://hankz.oss-cn-hangzhou.aliyuncs.com/wallhaven-72pj33.png?Expires=1641308875&amp;OSSAccessKeyId=TMP.3KezPLhgmhn5znKjfTswsQii51wqNh9j8FW7rD2EafTevRAynvHr1K8PgEYNBXhWA58vnA4cvNymqv6S6Bzg7bZAntCVvZ&amp;Signature=luRHPcUFRaFvRoCbQ4H8nQ6uYuk%3D" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="web安全"/></a><div class="content"><a class="title" href="/2021/09/28/web%E5%AE%89%E5%85%A8/" title="web安全">web安全</a><time datetime="2021-09-28T14:12:27.000Z" title="发表于 2021-09-28 22:12:27">2021-09-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/08/14/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93/" title="分布式数据库"><img src="https://hankz.oss-cn-hangzhou.aliyuncs.com/wallhaven-72pj33.png?Expires=1641308875&amp;OSSAccessKeyId=TMP.3KezPLhgmhn5znKjfTswsQii51wqNh9j8FW7rD2EafTevRAynvHr1K8PgEYNBXhWA58vnA4cvNymqv6S6Bzg7bZAntCVvZ&amp;Signature=luRHPcUFRaFvRoCbQ4H8nQ6uYuk%3D" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="分布式数据库"/></a><div class="content"><a class="title" href="/2021/08/14/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93/" title="分布式数据库">分布式数据库</a><time datetime="2021-08-14T13:47:38.000Z" title="发表于 2021-08-14 21:47:38">2021-08-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/12/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%E4%B8%80/" title="redis设计与实现一"><img src="https://hankz.oss-cn-hangzhou.aliyuncs.com/wallhaven-72pe8v.jpg?Expires=1641308824&amp;OSSAccessKeyId=TMP.3KezPLhgmhn5znKjfTswsQii51wqNh9j8FW7rD2EafTevRAynvHr1K8PgEYNBXhWA58vnA4cvNymqv6S6Bzg7bZAntCVvZ&amp;Signature=YHOZLh31tBI9nKDDS0DZhRLXOAA%3D" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="redis设计与实现一"/></a><div class="content"><a class="title" href="/2021/07/12/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%E4%B8%80/" title="redis设计与实现一">redis设计与实现一</a><time datetime="2021-07-12T15:31:18.000Z" title="发表于 2021-07-12 23:31:18">2021-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/08/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1Seata/" title="分布式事务Seata"><img src="https://hankz.oss-cn-hangzhou.aliyuncs.com/wallhaven-72pj33.png?Expires=1641308875&amp;OSSAccessKeyId=TMP.3KezPLhgmhn5znKjfTswsQii51wqNh9j8FW7rD2EafTevRAynvHr1K8PgEYNBXhWA58vnA4cvNymqv6S6Bzg7bZAntCVvZ&amp;Signature=luRHPcUFRaFvRoCbQ4H8nQ6uYuk%3D" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="分布式事务Seata"/></a><div class="content"><a class="title" href="/2021/07/08/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1Seata/" title="分布式事务Seata">分布式事务Seata</a><time datetime="2021-07-08T15:14:25.000Z" title="发表于 2021-07-08 23:14:25">2021-07-08</time></div></div></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/JVM/" style="font-size: 1.18em; color: #999ca1">JVM</a> <a href="/tags/java%E9%AB%98%E7%BA%A7/" style="font-size: 1.1em; color: #999">java高级</a> <a href="/tags/k8s/" style="font-size: 1.1em; color: #999">k8s</a> <a href="/tags/spring%E6%BA%90%E7%A0%81/" style="font-size: 1.42em; color: #99a6b7">spring源码</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 1.18em; color: #999ca1">其他</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 1.5em; color: #99a9bf">分布式</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.34em; color: #99a3b0">工具</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 1.18em; color: #999ca1">微服务</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.26em; color: #999fa8">数据库</a> <a href="/tags/%E6%BA%90%E7%A0%81/" style="font-size: 1.18em; color: #999ca1">源码</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.26em; color: #999fa8">算法</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 1.1em; color: #999">缓存</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/10/"><span class="card-archive-list-date">十月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/09/"><span class="card-archive-list-date">九月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/08/"><span class="card-archive-list-date">八月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/07/"><span class="card-archive-list-date">七月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/05/"><span class="card-archive-list-date">五月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/04/"><span class="card-archive-list-date">四月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/03/"><span class="card-archive-list-date">三月 2021</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/02/"><span class="card-archive-list-date">二月 2021</span><span class="card-archive-list-count">2</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">39</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-01-04T15:20:57.780Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By gump</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="84943176" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-autoplay="false" data-theme="#2980b9" data-loop="all" data-order="random" data-preload="auto" data-volume="0.4" data-mutex="true" data-listFolded="true" data-listmaxheight="340px" data-storagename="metingjs" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
   'title',
   '#config-diff',
   '#body-wrap',
