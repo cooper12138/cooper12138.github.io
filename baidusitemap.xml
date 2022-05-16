@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://example.com/20220516/StringTable/</loc>
+    <lastmod>2022-05-16</lastmod>
+  </url>
+  <url>
     <loc>http://example.com/20220515/%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/</loc>
     <lastmod>2022-05-15</lastmod>
   </url>
