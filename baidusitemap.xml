@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://example.com/20220813/spring-cache-redis%E8%87%AA%E5%AE%9A%E4%B9%89cache/</loc>
+    <lastmod>2022-08-13</lastmod>
+  </url>
+  <url>
     <loc>http://example.com/20220710/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BD%91%E7%9B%98/</loc>
     <lastmod>2022-08-13</lastmod>
   </url>
