@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://example.com/20220920/SpringCloud-Alibaba-Nacos/</loc>
+    <lastmod>2022-09-20</lastmod>
+  </url>
+  <url>
     <loc>http://example.com/20220906/%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%92%8CMVCC/</loc>
     <lastmod>2022-09-19</lastmod>
   </url>
